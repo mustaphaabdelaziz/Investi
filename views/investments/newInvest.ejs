@@ -1,0 +1,80 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#staticBackdropInvest"
+>
+  New Investment
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdropInvest"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Investment</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="/investments" method="POST"  class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <select
+              class="form-select"
+              name="packname"
+              id="pack"
+              aria-label="Floating label"
+            >
+              <option selected disabled>Select</option>
+              <% for (pack of packs) {%>
+              <option value="<%= pack.id %>"><%= pack.title %></option>
+              <%} %>
+            </select>
+            <label for="pack"><%= t('pack') %></label>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="file"
+              class="form-control"
+              id="picture"
+              name="picture"
+              required
+            />
+            <label class="input-group-text" for="picture"
+              ><%= t('cover') %> <%= t('picture') %></label
+            >
+          </div>
+          <!-- <div class="mb-3">
+            <button class="w-100 btn btn-lg btn-outline-success">
+              <%= t('add') %>
+            </button>
+          </div> -->
+        </div>
+        <div class="modal-footer row">
+          <button
+            type="button"
+            class="btn btn-outline-secondary col"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button class="btn btn-outline-success col"><%= t('add') %></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<% if(t("language")!=="اللغة"){%>
+<html>
+  <% }else{ %>
+  <html dir="rtl" lang="ar">
+    <% } %>
+
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Investi</title>
+      
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <script src="https://use.fontawesome.com/8696e5ff22.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="/css/event.css" />
+      <link rel="stylesheet" href="/css/eventCard.css" />
+      <link rel="stylesheet" href="/css/loginForm.css" />
+      <link rel="stylesheet" href="/css/main.css" />
+      <link rel="stylesheet" href="/css/login.css" />
+      <link rel="stylesheet" href="/css/navbar.css" />
+      <link rel="stylesheet" href="/css/profileCard.css" />
+      <link rel="stylesheet" href="/css/userProfile.css" />
+      <link rel="stylesheet" href="/css/item.css" />
+      <link rel="stylesheet" href="/css/table.css" />
+      <link rel="stylesheet" href="/css/sidebars.css" />
+      <link rel="stylesheet" href="/css/profileCheckBox.css" />
+      <link rel="stylesheet" href="/css/geocoder.css" />
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link rel="icon" href="/assets/logo.png" />
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+
+      <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body class="d-flex flex-column">
+      <%- include("../partials/navbar")%>
+      <main class=""><%- include("../partials/flash")%> <%- body %></main>
+      <%- include('../partials/footer')%>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"
+      ></script>
+
+      <script async src="/js/validate-form.js"></script>
+      <script async src="/js/loginForm.js"></script>
+      <script async src="/js/userProfile.js"></script>
+      <script async src="/js/sorttable.js"></script>
+      <script async src="/js/table.js"></script>
+      <script async src="/js/sidebars.js"></script>
+
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+    </body>
+  </html>
+</html>

@@ -1,0 +1,46 @@
+<% let i=1; %>
+<% for (invest of invests) { %>
+<tr>
+  <th scope="row">
+    <%= i++ %>
+  </th>
+  <td class="text-center">
+    <%= invest.user.firstname %>
+  </td>
+  <td class="text-center">
+    <%= invest.user.lastname %>
+  </td>
+  <td class="text-center">
+    <%= invest.packname.title %>
+  </td>
+  <td class="text-center">
+    <%= invest.state %>
+  </td>
+  <td class="text-center">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width:50%;" aria-valuenow="<%=calculatePercentage(invest.startDate,getNbrOfDays((moment(invest.startDate).add(invest.packname.period,'days')).diff(moment(),"days"))) %>" aria-valuemin="0" aria-valuemax="<%=invest.packname.period %> ">
+        <%= getNbrOfDays((moment(invest.startDate).add(invest.packname.period,'days')).diff(moment(),"days")) %>
+      </div>
+    </div>
+  </td>
+  <td class="text-center">CCP</td>
+  <td class="text-center">
+    <%-include("./imageViewer")%>
+  </td>
+  <td class="text-center">
+    <a href="/investments/<%=invest._id%>/edit" class="card-link btn btn-warning me-3">
+      <i class="bi bi-pencil"></i>
+    </a>
+    <form class="d-inline me-3" id="delete-form" action="/investments/<%=invest._id %>/?_method=DELETE" method="POST">
+      <button class="card-link btn btn-danger">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+    </form>
+  </td>
+</tr>
+<% } %>
+<% if (i < 1){%>
+<td class="text-center" scope="row" colspan="4" class="text-center text-muted">
+  <%= t("no_products") %>
+</td>
+<% } %>

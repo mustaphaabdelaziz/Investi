@@ -1,0 +1,77 @@
+<% layout('layouts/boilerplate')%>
+<div class="row mt-3">
+  <h1 class="card-title text-center mb-3">New Pack</h1>
+  <div class="col-6 offset-3 mb-3">
+    <form action="/packs" method="POST">
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="pack[title]"
+          placeholder="<%= t('title') %>"
+          required
+        />
+        <label for="title" class="form-labelfs-6"><%= t('title') %></label>
+        <div class="valid-feedback">looks good</div>
+      </div>
+      <div class="form-floating mb-3">
+        <select id="packType" name="pack[type]" class="form-select" required>
+          <option selected disabled></option>
+          <option class="option" value="Bronze">Bronze</option>
+          <option class="option" value="Silver">Silver</option>
+          <option class="option" value="Gold">Gold</option>
+          <option class="option" value="Platinum">Platinum</option>
+        </select>
+        <label for="packType" class="form-label"><%= t('type') %></label>
+        <div class="valid-feedback">looks good</div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="number"
+          id="profit"
+          name="pack[profit]"
+          placeholder="<%= t('profit') %>"
+          required
+        />
+        <label for="profit" class="form-labelfs-6"><%= t('profit') %></label>
+        <div class="valid-feedback">looks good</div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="number"
+          id="period"
+          name="pack[period]"
+          placeholder="<%= t('period') %>"
+          required
+        />
+        <label for="period" class="form-labelfs-6"><%= t('period') %></label>
+        <div class="valid-feedback">looks good</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="floatingInput" class="form-label fs-6"
+          ><%= t('description') %>:</label
+        >
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="pack[description]"
+          placeholder="<%= t('description') %>"
+          rows="8"
+          required
+        ></textarea>
+        <div class="valid-feedback">looks good</div>
+      </div>
+      <div class="mb-3">
+        <button class="w-100 btn btn-lg btn-outline-success">
+          <%= t('add') %>
+        </button>
+      </div>
+    </form>
+    <a href="/packs"><%= t('all') %> <%= t('pack') %></a>
+  </div>
+</div>

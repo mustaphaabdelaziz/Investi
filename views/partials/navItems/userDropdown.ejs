@@ -1,0 +1,81 @@
+<% if (currentUser){ %>
+<% if (currentUser.userType==="user" ) {%>
+<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <img src="<%= currentUser.picturesID[0].url %>" alt="" width="40" height="40" class="rounded-circle me-2">
+  <span>
+    <%= currentUser.firstname %>
+  </span>
+</a>
+<% } else if (currentUser.userType==="company" ) {%>
+<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <img src="<%= currentUser.logo[0].url %>" alt="" width="40" height="40" class="rounded-circle me-2">
+  <span>
+    <%= currentUser.name %>
+  </span>
+</a>
+
+<% }} else { %>
+<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i class="bi bi-person-circle"></i>
+</a>
+<% } %>
+<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+  <% if (!currentUser) {%>
+
+  <li><a class="dropdown-item" href="/user/login"><%= t('login') %></a></li>
+  <li><a class="dropdown-item" href="/user/register"><%= t('register') %></a></li>
+
+  <% } else { %>
+  <% if(currentUser.userType==="user" ){ %>
+  <% if (!currentUser.privileges.includes("speaker")){ %>
+
+  <li>
+    <a class="dropdown-item" href="/user/speaker/<%=currentUser._id %>/new">
+      <%= t('become') %> <%= t('speaker') %>
+    </a>
+  </li>
+
+  <% } %>
+  <% if (!currentUser.privileges.includes("organizer")){%>
+
+  <li>
+    <a class="dropdown-item" href="/user/<%=currentUser._id %>/organizers">
+      <%= t('become') %> <%= t('organizer') %>
+    </a>
+  </li>
+
+  <% }else{%>
+
+  <li>
+    <a class="dropdown-item" href="/user/<%= currentUser._id%>/dashboards">
+      <%= t('dashboard') %>
+    </a>
+  </li>
+
+  <% } %>
+
+  <li>
+    <a class="dropdown-item" href="/user/<%=currentUser._id%>/profile">
+      <%= t('profile') %>
+    </a>
+    <a class="dropdown-item" href="/user/<%=currentUser._id%>">
+      <%= t('settings') %>
+    </a>
+    <a class="dropdown-item" href="/user/logout">
+      <%= t('logout') %>
+    </a>
+  </li>
+
+  <% } else if(currentUser.userType === "company" ){%>
+
+  <li>
+    <a class="dropdown-item" href="/company/<%=currentUser._id %>">
+      <%= t('settings') %>
+    </a>
+    <a class="dropdown-item" href="/company/logout">
+      <%= t('logout') %>
+    </a>
+  </li>
+
+  <%}}%>
+</ul>

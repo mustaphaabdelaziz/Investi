@@ -1,0 +1,37 @@
+<section class="hero">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img
+          src="assets/logo.png"
+          class="d-block mx-lg-auto img-fluid"
+          alt="EventPlus Logo"
+          width="700"
+          height="500"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Investi</h1>
+        <p class="lh-base text-wrap"><%= t('hello_message') %></p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <!-- <a href="/packs" class="btn btn-primary btn-lg px-4 me-md-2">All packs</a> -->
+          
+          <% if (!currentUser) {%>
+          <a
+            href="/users/register"
+            class="btn btn-outline-secondary btn-lg px-4"
+          >
+            <%= t('register') %></a
+          >
+          <% }else{%>
+            <% if (currentUser.userType.includes("admin")) { %>
+              <%-include("../../packs/packModel")%>
+            <% } %>
+            <%-include("../../investments/newInvest")%>
+          <% }%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

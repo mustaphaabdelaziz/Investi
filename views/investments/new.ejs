@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate')%>
+<div class="row mt-3">
+  <h1 class="card-title text-center mb-3">New Investment</h1>
+  <div class="col-6 offset-3 mb-3">
+    <form action="/investments" method="POST"  class="needs-validation" enctype="multipart/form-data" novalidate>
+      <div class="modal-body">
+        <div class="form-floating mb-3">
+          <select
+            class="form-select"
+            name="packname"
+            id="pack"
+            aria-label="Floating label"
+          >
+            <option selected disabled>Select</option>
+            <% for (pack of packs) {%>
+            <option value="<%= pack.id %>"><%= pack.title %></option>
+            <%} %>
+          </select>
+          <label for="pack"><%= t('pack') %></label>
+        </div>
+
+        <div class="input-group mb-3">
+          <input
+            type="file"
+            class="form-control"
+            id="picture"
+            name="picture"
+            required
+          />
+          <label class="input-group-text" for="picture"
+            ><%= t('cover') %> <%= t('picture') %></label
+          >
+        </div>
+      <div class="mb-3">
+        <button class="w-100 btn btn-lg btn-outline-success">
+          <%= t('add') %>
+        </button>
+      </div>
+    </form>
+    <a href="/investments"><%= t('all') %> <%= t('investments') %></a>
+  </div>
+</div>
